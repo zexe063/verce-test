@@ -8,7 +8,7 @@ server.use(cors({
 }))
 server.use(express.json())
 
-mongoose.connect("mongodb://localhost:27017/verceltes").then(()=>{
+mongoose.connect("mongodb+srv://hackx0315:CTKR7Lb5pkygxIl9@cluster0.nnmfi6r.mongodb.net/verceltes").then(()=>{
     console.log("database connected")
 }).catch(()=>{
     console.log("eroro")
