@@ -20,7 +20,7 @@ async  function createuser(){
   return(
     <div>
 <input type="text" placeholder="email" title="email" onChange={inputclick}></input>
-<input type="text" placeholder="passowrd" title="passowrd" onChange={inputclick}></input>
+<input type="text" placeholder="passowrd" title="password" onChange={inputclick}></input>
 <button onClick={createuser}>send </button>
     </div>
   )
