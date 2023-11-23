@@ -3,9 +3,17 @@ const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-server.use(cors({
-    origin:"https://verce-test-djrl.vercel.app"
-}))
+const whitelist = ["https://verce-test-djrl.vercel.app"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 server.use(express.json())
 
 mongoose.connect("mongodb+srv://hackx0315:CTKR7Lb5pkygxIl9@cluster0.nnmfi6r.mongodb.net/verceltes").then(()=>{
