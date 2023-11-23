@@ -6,9 +6,9 @@ function App(){
   function inputclick(e){
     setData({...data, [e.target.title]:e.target.value})
   }
-
+console.log(data);
 async  function createuser(){
-    const res= await axios.post("http://localhost:8000/home",data);
+    const res= await axios.post("https://verce-test-three.vercel.app/home",data);
   console.log(res)
   }
 
