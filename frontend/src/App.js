@@ -8,7 +8,9 @@ function App(){
   }
 console.log(data);
 async  function createuser(){
+
     const res= await axios.post("https://verce-test-three.vercel.app/home",data);
+    console.log(res.data)
   if(res.data){
   alert("noobda headshot laga gaya")
   }
