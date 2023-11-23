@@ -24,10 +24,21 @@ const user = mongoose.model("user", userSchema);
 server.get("/", (req,res)=>{
     res.send("helo muraru")
 })
-server.get("/home",async(req,res)=>{
-    const data =  await user.find();
-    res.json(data)
-})
+server.post("/home", async (req, res) => {
+    try {
+      const data = new user(req.body);
+      console.log("Received data:", data);
+  
+      await data.save();
+  
+      console.log("Data saved successfully");
+      res.json(data);
+    } catch (error) {
+      console.error("Error saving data:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+  
 
 server.post("/home",async(req,res)=>{
 const data  = await new user(req.body);
